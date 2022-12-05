@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		{% block title %}
+			<h2>회원탈퇴</h2>
+		{% endblock %}
+		{% block content %}
+			<form method="post" action="mdelete" name="passwdform" id="passwdform">
+					<table>
+						<tr>
+							<th colspan="2">
+							{% if message %}
+								{{message}}
+							{% else %}
+								비밀 번호를 다시 입력해주세요.
+							{% endif %}
+							</th>
+						</tr>
+						<tr>
+							<th>비밀번호</th>
+							<td>
+								<input class="input" type="password" name="passwd" id="checkPW" maxlength="50" autofocus>
+							</td>
+						</tr>
+						<tr>
+							<th colspan="2">
+								<input class="inputbutton" type="submit" value="회원탈퇴" onclick="location='main'">
+								<input class="inputbutton" type="button" value="탈퇴취소" onclick="location='main'">
+							</th>
+						</tr>
+					</table>
+				</form>
+		{% endblock %}
+	</body>
+</html>

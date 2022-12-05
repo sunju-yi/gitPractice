@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/style_member.css' %}"></link>
+		<script src="{% static 'js/jquery-3.6.1.js' %}"></script>
+		<script src="{% static 'js/script_member.js' %}"></script>
+	</head>
+	<body>
+		<h2>아이디 중복확인 결과</h2>
+		{% if result == 0 %}  <!-- id 없음 -->
+			<table>
+				<tr>
+					<td align="center">
+					<!-- 함수 호출로 변경하는 것이 나음. -->
+						<span>{{id}}</span>는 사용가능한 아이디 입니다.
+					</td>
+				</tr>
+				<tr>
+					<td align=center>
+						확인을 눌러주세요
+						<input class="inputbutton" type="button" value="확인" id="b_confirm">
+						<!-- onclick = "setid('{{id}}')" -->
+					</td>
+				</tr>
+			</table>
+		{% else %}	<!-- id 있음 -->
+			<form action="confirm" id="confirmform">
+				<table>
+				<tr>
+					<td align="center" colspan="2">
+						<span>{{id}}</span>는 사용<span>불가</span>한 아이디 입니다.
+					</td>
+				</tr>
+				<tr>
+					<th>아이디</th>
+					<td>
+						<input class="input" type="text" name="id" id="new_id" maxlength="50" autofocus>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input class="inputbutton" type="submit" value="확인" id="null_check">
+						<input class="inputbutton" type="button" value="취소" onclick="window.close()">
+					</th>
+				</tr>
+			</table>
+			</form>
+		{% endif %}
+	</body>
+</html>

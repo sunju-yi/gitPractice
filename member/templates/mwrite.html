@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		{% block title %}
+			<h2>회원가입</h2>
+		{% endblock %}
+		{% block content %}
+			<form method="post" action="mwrite" class="new_member" name="inputform">
+				{% csrf_token %}
+				<input type="hidden" name="confirm" value="0" id="confirm_value">
+				<table>
+					<tr>
+						<th colspan="2">회원 정보를 입력하세요</th>
+					</tr>
+					<tr>
+						<th>아이디</th>
+						<td>
+							<input class="input" type="text" name="id" maxlength="50" id="new_id" autofocus>
+							<input class="inputbutton" type="button" id="double_id_check" value="중복확인">
+						</td>
+					</tr>
+					<tr>
+						<th rowspan="2">비밀번호</th>
+						<td>
+							<input class="input" type="password" name="passwd" maxlength="50" id="new_pw">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="input" type="password" name="repasswd" maxlength="50" id="re_pw">
+						</td>
+					</tr>
+					<tr>
+						<th>이름</th>
+						<td>
+							<input class="input" type="text" name="name" maxlength="50" id="new_name">
+						</td>
+					</tr>
+					<tr>
+						<th>이메일</th>
+						<td>
+							<input class="input" type="text" name="email1" maxlength="25" id="new_email1" style="width:50px">
+							@
+							<select name="email2" maxlength="25" id="new_email2">
+								<option value="naver.com">네이버</option>
+								<option value="gmail.com">구글</option>
+								<option value="daum.net">다음</option>
+								<option value="nate.com">네이트</option>
+								<option value="nownuri.com">나우누리</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>전화번호</th>
+						<td>
+							<input class="input" type="text" name="tel1" maxlength="3" id="new_tel1" style="width:27px">
+							-
+							<input class="input" type="text" name="tel2" maxlength="4" id="new_tel2" style="width:33px">
+							-
+							<input class="input" type="text" name="tel3" maxlength="4" id="new_tel3" style="width:33px">
+							
+						</td>
+					</tr>
+					<tr>
+						<th>부서</th>
+						<td>
+							&nbsp; <select name="depart" maxlength="25" id="new_dept">
+								<option value="선택 안함">선택안함</option>
+								<option value="영업부">영업부</option>
+								<option value="관리부">관리부</option>
+								<option value="경리부">경리부</option>
+								<option value="개발부">개발부</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>주소</th>
+						<td>다음 주소 api이용할 것</td>
+					</tr>
+					<tr>
+						<th colspan="2">
+							<input class="inputbutton" type="submit" value="가입">
+							<input class="inputbutton" type="reset" value="입력취소">
+							<input class="inputbutton" type="button" value="가입취소" onclick="location='main'">
+						</th>
+					</tr>
+				</table>
+			</form>
+		{% endblock %}
+	</body>
+</html>

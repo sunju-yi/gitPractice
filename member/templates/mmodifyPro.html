@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		{% block title %}
+			<h2>회원정보 수정 pro</h2>
+		{% endblock %}
+		{% block content %}
+		<form method="post" action="mmodifyPro" name="modifyform" id="modifyform">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<th colspan="2">수정 정보를 입력하세요.</th>
+				</tr>
+				<tr>
+					<th>아이디</th>
+					<td>&nbsp;{{dto.id}}</td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td><input class="inputbutton" type="passwd"></td>
+				</tr>
+			</table>
+		</form>
+		{% endblock %}
+	</body>
+</html>

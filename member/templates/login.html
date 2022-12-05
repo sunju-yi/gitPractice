@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		{% block title %}
+		<h2>로그인</h2>
+		{% endblock %}
+		
+		{% block content %}
+			<form method="post" action="login" name="mainform">
+				{% csrf_token %}
+				<table>
+					<tr>
+						<th colspan="2">
+						{% if message %}
+							{{message}}
+						{% else %}
+							회원가입에 성공하였습니다.
+						{% endif %}
+						</th>
+					</tr>
+					<tr>
+						<th>아이디</th>
+						<td>
+							<input class="input" type="text" name="id" id="tbID" autofocus>
+						</td>
+					</tr>
+					<tr>
+						<th>비밀번호</th>
+						<td>
+							<input class="input" type="password" name="passwd" id="tbPW" autofocus>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="2">
+							<input class="inputbutton" type="submit" value="로그인">
+							<input class="inputbutton" type="reset" value="취소">
+							<input class="inputbutton" type="button" value="홈" onclick="location='main'">
+						</th>
+					</tr>
+				</table>
+			</form>
+		{% endblock %}
+	</body>
+</html>
