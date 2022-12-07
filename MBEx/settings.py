@@ -70,6 +70,11 @@ LOGGING = {
             "propagate":True,
             "level":"INFO", #로그 쌓을때    debug하면 다 쌓임.
             },
+        "board":{
+            "handlers":["file"],
+            "propagate":True,
+            "level":"INFO",
+            }
         },
     }
 
@@ -83,7 +88,7 @@ SECRET_KEY = "django-insecure-452q@ddpf4)o&x9)8*)z!*63378w4(*%e-gl2dm)tsc5m$tk9#
 # SECURITY WARNING: don"t run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1","192.168.56.1", "192.168.0.8"]
 
 
 # Application definition
@@ -97,7 +102,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     #1201 added
     "member.apps.MemberConfig",
-    
+    #1206 added
+    "board.apps.BoardConfig",
+    #1207 added
+    "mathfilters",
 ]
 
 MIDDLEWARE = [
@@ -117,7 +125,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [],
-        "APP_DIRS": True,
+        "APP_DIRS": True, #False 일 경우 template을 한데 모을 수 있음.
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",

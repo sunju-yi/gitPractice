@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BASE</title>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/style_board.css' %}">
+		<script src = "{% static 'js/jquery-3.6.1.js'%}"></script>
+		<script src = "{% static 'js/script_board.js'%}"></script>
+	</head>
+	<body>
+		{% block header %}
+			<div id = "header">
+				<a href="/member/main">회원 관리</a> &nbsp;
+				<a href="/board/list">게시판</a>
+			</div>
+		{% endblock %}
+		<br>
+		{%block title%}
+			<h2>게시판</h2>
+		{%endblock%}
+		
+		{%block content%}
+			게시글 내용 empty
+		{%endblock%}
+	</body>
+</html>

@@ -20,7 +20,7 @@ from django.urls.conf import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('member/', include("member.urls")),
-    #path('board/', include("board.urls")),
+    path('board/', include("board.urls")),
 ]
 
 #localhost:8000/member/...

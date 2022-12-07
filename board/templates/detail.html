@@ -1,0 +1,44 @@
+{% extends "base_board.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		{% block title %}
+			<h2>글보기</h2>
+		{% endblock %}
+		
+		{% block content %}
+			<table>
+				<tr>
+					<th>글번호</th>
+					<td style="text-align:center">{{number}}</td>
+					<th>조회수</th>
+					<td style="text-align:center">{{dto.readcount}}</td>
+				</tr>
+				<tr>
+					<th>글제목</th>
+					<td colspan="3">
+						{{dto.subject}}
+					</td>
+				</tr>
+				<tr>
+					<th>글 내용</th>
+					<td colspan="3">
+						<pre>{{dto.content}}</pre>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="4">
+						<input class="inputbutton" type="button" value="수정" onclick="location='bmodify?num={{dto.num}}&pagenum={{pagenum}}'">
+						<input class="inputbutton" type="button" value="삭제" onclick="location='bdelete?num={{dto.num}}&pagenum={{pagenum}}'">
+						<input class="inputbutton" type="button" value="답글" onclick="location='bwrite?num={{dto.num}}&ref={{dto.ref}}&restep={{dto.restep}}&relevel={{dto.relevel}}'">
+						<input class="inputbutton" type="button" value="목록" onclick="location='list?pagenum={{pagenum}}'">
+					</th>
+				</tr>
+			</table>
+		{% endblock %}
+	</body>
+</html>

@@ -182,8 +182,30 @@ class MModifyView(View):
             return HttpResponse(template.render(context, request))
         
 class MModifyProView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return View.dispatch(self, request, *args, **kwargs)
+    
     def get(self):
         pass
     
-    def post(self):
-        pass
+    def post(self, request):
+        id = request.session.get("memid")
+        passwd = request.POST["passwd"]
+        email = request.POST["email1"]+"@"+request.POST["email2"]
+        tel = ""
+        tel1 = request.POST["tel1"]
+        tel2 = request.POST["tel2"]
+        tel3 = request.POST["tel3"]
+        if(tel1 and tel2 and tel3):
+            tel = tel1+"-"+tel2+"-"+tel3
+        depart = request.POST["depart"]
+        
+        dto = Member.objects.get(id=id)
+        dto.passwd = passwd
+        dto.email = email
+        dto.tel = tel
+        dto.depart = depart
+        
+        dto.save()
+        return redirect("main")

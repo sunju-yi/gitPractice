@@ -16,6 +16,6 @@ urlpatterns = [
     path("logout", views.LogoutView.as_view(), name="logout"),
     path("mdelete", views.MDeleteView.as_view(), name="mdelete"),
     path("mmodify", views.MModifyView.as_view(), name="mmodify"),
-    path("mmodiyPro", views.MModifyProView.as_view(), name="mmodifyPro"),
+    path("mmodifyPro", views.MModifyProView.as_view(), name="mmodifyPro"),
     
     ]

@@ -164,3 +164,7 @@
 [2022-12-05 14:32:35] INFO [member.views:40] mwrite.html
 [2022-12-05 15:54:00] INFO [member.views:40] mwrite.html
 [2022-12-05 15:55:29] INFO [member.views:40] mwrite.html
+[2022-12-07 15:49:28] INFO [board.views:176] 답글없음.
+[2022-12-07 15:50:20] INFO [board.views:179] 답글있음.
+[2022-12-07 15:50:35] INFO [board.views:179] 답글있음.
+[2022-12-07 15:50:46] INFO [board.views:176] 답글없음.

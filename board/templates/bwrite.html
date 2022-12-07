@@ -1,0 +1,60 @@
+{% extends "base_board.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		{% block title%}
+		{% endblock %}
+		{% block content%}
+		<form method="post" action="bwrite" name="inputform" id="inputform">
+			{% csrf_token %}
+			<input type="hidden" name="num" id="num" value="{{num}}">
+			<input type="hidden" name="ref" id="ref" value="{{ref}}">
+			<input type="hidden" name="restep" id="restep" value="{{restep}}">
+			<input type="hidden" name="relevel" id="relevel" value="{{relevel}}">
+			
+			<table>
+				<tr>
+					<th colspan="2" style="text-align : right">
+						<a href="list">글목록</a>&nbsp;
+					</th>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td>
+						<input class="input" type="text" name="writer" id="writer" maxlength="50" autofocus>
+					</td>
+				</tr>
+				<tr>
+					<th>글제목</th>
+					<td>
+						<input class="input" type="text" name="subject" id="subject" maxlength="300">
+					</td>
+				</tr>
+				<tr>
+					<th>글내용</th>
+					<td>
+						<textarea rows="10" name="content" id="content"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td>
+						<input class="input" type="password" name="passwd" id="passwd" maxlength="30">
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input class="inputbutton" type="submit" value="작성">
+						<input class="inputbutton" type="reset" value="취소">
+						<input class="inputbutton" type="button" value="목록" onclick="location='list'">
+					</th>
+				</tr>
+			</table>
+		</form>
+		{% endblock %}
+	</body>
+</html>

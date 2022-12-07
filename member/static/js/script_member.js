@@ -10,6 +10,7 @@ var pw_empty = "비밀번호를 입력하세요.";
 var pw_error = "설정한 비밀번호와 다릅니다.";
 var name_empty = "이름을 입력하세요";
 var email_empty = "이메일 주소를 입력하세요";
+var email_error = "@를 제거해 주세요.";
 //var tel_error="첫번째 칸을 입력하세요.";
 var confirmerror = "아이디 중복확인을 해 주세요.";
 
@@ -129,6 +130,35 @@ $(document).ready(
 					alert(pw_empty);
 					$("#updatePW").focus();
 					return false;
+				}
+			}
+		);
+		
+		//회원정보수정 form -  비밀번호&이메일 빈칸 확인
+		$("#modifyform").on(
+			"submit",
+			function(event){
+				if(!$("#passwd").val()){
+					alert(pw_empty);
+					$("#passwd").focus();
+					return false;
+				}else if($('#passwd').val()!=$("#repasswd").val()){
+					alert(pw_error);
+					$("#passwd").focus();
+					return false;
+				}else if(!$("#new_email1").val() || !$("#new_email2").val()){
+					alert(email_empty);
+					$("#new_email1").focus();
+					return false;
+				}
+				
+				if($("#new_email1").val() && $("#new_email2").val()){
+					if($("#new_email1").val().indexOf('@') != -1
+					|| $("#new_email2").val().indexOf('@') != -1){
+						alert(email_error);
+						$("#new_email1").focus();
+						return false;
+					}
 				}
 			}
 		);
